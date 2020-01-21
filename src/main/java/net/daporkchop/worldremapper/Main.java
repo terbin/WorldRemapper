@@ -77,20 +77,23 @@ public class Main {
         CompoundTag playerTag = dataTag.getCompound("Player");
         logger.info("Parsed NBT!");
 
-        dataTag.putInt("clearWeatherTime", 3);
+        dataTag.putByte("allowCommands", (byte) 1);
+        dataTag.putInt("clearWeatherTime", Integer.MAX_VALUE - 1);
+        dataTag.putInt("DayTime", 3000);
         dataTag.putByte("Difficulty", (byte) 3);
-        dataTag.putInt("GameType", 0);
+        dataTag.putInt("GameType", 1);
         dataTag.putString("generatorName", "flat");
         dataTag.putString("generatorOptions", ";0");
         dataTag.putByte("MapFeatures", (byte) 0);
         dataTag.putByte("raining", (byte) 0);
-        dataTag.putInt("thunderTime", Integer.MAX_VALUE - 1);
         dataTag.putInt("rainTime", Integer.MAX_VALUE - 1);
-        dataTag.putInt("clearWeatherTime", Integer.MAX_VALUE - 1);
+        dataTag.putByte("thundering", (byte) 0);
+        dataTag.putInt("thunderTime", Integer.MAX_VALUE - 1);
 
-        playerTag.putList("EnderItems", Collections.emptyList());
-        playerTag.putList("Inventory", Collections.emptyList());
-
+/**
+*        playerTag.putList("EnderItems", Collections.emptyList());
+*        playerTag.putList("Inventory", Collections.emptyList());
+**/
         playerTag.remove("ForgeDataVersion");
         dataTag.remove("forge");
         tag.remove("forge");
